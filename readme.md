@@ -10,6 +10,10 @@ Download or clone the project from the GitHub repository.
 Open the project folder in a text editor such as Visual Studio Code or Atom.
 Usage:
 
+Usage:
+
+View the simulation on the demo: https://bishalgc1996.github.io/ball-moment-fun/
+
 Open the index.html file in a web browser.
 A canvas will appear displaying the simulation of the ball.
 The user can adjust the parameters of the forces by modifying the constants in the constants.js file.
