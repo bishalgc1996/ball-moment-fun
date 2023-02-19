@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fun</title>
+    <style>
+
+        /* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CSS Normalize */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+a {
+  background-color: transparent;
+}
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+        #wrapper {
+            display: flex;
+          justify-content: space-between;
+  align-items: center;
+  height: 80vh;
+  padding: 10px;
+  gap:1rem;
+
+
+
+        }
+        .ball {
+            border-radius:50%;
+            background: orange;
+            height: 50px;
+            width:50px;
+            position: relative;
+   animation: move-up-down 2s ease-in-out infinite;
+        }
+
+        @keyframes move-up-down {
+   0% {
+    top: 0;
+   }
+   50% {
+    top:100px;
+   }
+   100% {
+    top:0;
+   }
+}
+
+        /* select the first child element */
+#wrapper :nth-child(1) { 
+   background-color: yellow; 
+}
+
+/* select every second child element */
+#wrapper :nth-child(2n) { 
+   background-color: lightgray; 
+}
+
+/* select every third child element */
+#wrapper :nth-child(3n) { 
+   background-color: chocolate; 
+}
+
+
+
+    </style>
+</head>
+<body>
+  
+    <script>
+
+        
+
+const wrapper = document.createElement("div"); // create the wrapper div
+
+        let generatemarkupWrapper = () => {
+  
+wrapper.id = "wrapper"; // set the id of the wrapper div
+
+
+        }
+
+        let generatemarkupBall = () => {
+            const ball = document.createElement("div"); // create the ball div
+ball.classList.add("ball"); // add the class "ball" to the ball div
+
+
+
+wrapper.appendChild(ball); // append the ball div to the wrapper div
+
+document.body.appendChild(wrapper); // append the wrapper div to the body
+
+
+        }
+
+        generatemarkupWrapper()
+
+        let i = 0;
+
+do {
+    generatemarkupBall()
+   
+
+  i++;
+} while (i < 5);
+
+setInterval(function() {
+    console.log("Running code inside setTimeout()");
+    document.body.style.backgroundColor = getRandomColor();
+    let balls = document.querySelectorAll('.ball');
+  balls.forEach(function(ball) {
+    ball.style.backgroundColor = getRandomColor();
+  });
+
+}, 3000);
+
+
+
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+
+
+/*
+
+let x = 0;
+
+function animate() {
+  x += 1;
+  document.body.style.backgroundColor = `rgb(${x % 256}, ${x % 256}, ${x % 256})`;
+  requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);
+
+*/
+
+
+
+
+
+    </script>
+</body>
+</html>
